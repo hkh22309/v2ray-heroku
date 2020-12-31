@@ -31,18 +31,14 @@ date -R
 
 
 if [ "$VER" = "latest" ]; then
-  # V_VER=`wget -qO- "https://api.github.com/repos/v2ray/v2ray-core/releases/latest" | sed -n -r -e 's/.*"tag_name".+?"([vV0-9\.]+?)".*/\1/p'`
-  # [[ -z "${V_VER}" ]] && V_VER="v4.23.1"
-  V_VER=`wget -qO- "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" | sed -n -r -e 's/.*"tag_name".+?"([vV0-9\.]+?)".*/\1/p'`
-  [[ -z "${V_VER}" ]] && V_VER="v4.28.2"
+  V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip"
 else
   V_VER="v$VER"
+  V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/download/$V_VER/v2ray-linux-64.zip"
 fi
 
 mkdir /v2raybin
 cd /v2raybin
-# V2RAY_URL="https://github.com/v2ray/v2ray-core/releases/download/$V_VER/v2ray-linux-64.zip"
-V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip"
 echo ${V2RAY_URL}
 wget --no-check-certificate -qO 'v2ray.zip' ${V2RAY_URL}
 unzip v2ray.zip
