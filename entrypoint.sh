@@ -1,25 +1,29 @@
 #! /bin/bash
 set -ex
 
-VER="latest"
-
+if [[ -z "${VER}" ]]; then
+  VER="latest"
+fi
 echo ${VER}
 
-
-UUID="4890bd47-5180-4b1c-9a5d-3ef686543112"
-
+if [[ -z "${UUID}" ]]; then
+  UUID="ffc17112-b755-499d-be9f-91a828bd3197"
+fi
 echo ${UUID}
 
-AlterID="64"
-
+if [[ -z "${AlterID}" ]]; then
+  AlterID="64"
+fi
 echo ${AlterID}
 
-V2_Path="/v2"
-
+if [[ -z "${V2_Path}" ]]; then
+  V2_Path="/static"
+fi
 echo ${V2_Path}
 
-V2_QR_Path="qr_img"
-
+if [[ -z "${V2_QR_Path}" ]]; then
+  V2_QR_Path="qr_img"
+fi
 echo ${V2_QR_Path}
 
 rm -rf /etc/localtime
