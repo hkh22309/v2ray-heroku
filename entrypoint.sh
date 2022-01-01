@@ -1,41 +1,32 @@
 #! /bin/bash
 set -ex
-if [[ -z "${VER}" ]]; then
-  VER="latest"
-fi
+
+VER="latest"
+
 echo ${VER}
 
-if [[ -z "${UUID}" ]]; then
-  UUID="ffc17112-b755-499d-be9f-91a828bd3197"
-fi
+
+UUID="4890bd47-5180-4b1c-9a5d-3ef686543112"
+
 echo ${UUID}
 
-if [[ -z "${AlterID}" ]]; then
-  AlterID="64"
-fi
+AlterID="64"
+
 echo ${AlterID}
 
-if [[ -z "${V2_Path}" ]]; then
-  V2_Path="/static"
-fi
+V2_Path="/v2"
+
 echo ${V2_Path}
 
-if [[ -z "${V2_QR_Path}" ]]; then
-  V2_QR_Path="qr_img"
-fi
+V2_QR_Path="qr_img"
+
 echo ${V2_QR_Path}
 
 rm -rf /etc/localtime
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 date -R
 
-
-if [ "$VER" = "latest" ]; then
-  V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip"
-else
-  V_VER="v$VER"
-  V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/download/$V_VER/v2ray-linux-64.zip"
-fi
+V2RAY_URL="https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip"
 
 mkdir /v2raybin
 cd /v2raybin
