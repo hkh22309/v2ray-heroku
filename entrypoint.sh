@@ -134,6 +134,7 @@ else
 fi
 
 cd /v2raybin
+export V2RAY_VMESS_AEAD_FORCED=false
 ./v2ray -config config.json &
 cd /caddybin
 ./caddy -conf="Caddyfile"
